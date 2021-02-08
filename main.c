@@ -70,6 +70,14 @@ void relay_write_4(bool on) {
     gpio_write(relay_gpio_4, on ? 0 : 1);
 }
 
+void relay_write_5(bool on) {
+    gpio_write(relay_gpio_5, on ? 0 : 1);
+}
+
+void relay_write_6(bool on) {
+    gpio_write(relay_gpio_6, on ? 0 : 1);
+}
+
 
 void reset_configuration_task() {
     printf("Resetting Wifi");
@@ -407,23 +415,26 @@ void user_init(void) {
     gpio_init();
 
 
+    int c_hash=ota_read_sysparam(&manufacturer.value.string_value,&serial.value.string_value,
+                                      &model.value.string_value,&revision.value.string_value);
+    //c_hash=1; revision.value.string_value="0.0.1"; //cheat line
+    config.accessories[0]->config_number=c_hash;
+    homekit_server_init(&config);
+
     button_config_t config = BUTTON_CONFIG(
         button_active_low,
         .long_press_time = 3000,
         .max_repeat_presses = 3,
     );
 
+
     if (button_create(BUTTON_PIN, config, button_callback, NULL)) {
-          printf("Failed to initialize button\n");
+        printf("Failed to initialize button\n");
     }
     if (button_create(BUTTON_PIN_2, config, button_callback_2, NULL)) {
-          printf("Failed to initialize button\n");
+        printf("Failed to initialize button\n");
     }
 
-    int c_hash=ota_read_sysparam(&manufacturer.value.string_value,&serial.value.string_value,
-                                      &model.value.string_value,&revision.value.string_value);
-    //c_hash=1; revision.value.string_value="0.0.1"; //cheat line
-    config.accessories[0]->config_number=c_hash;
 
-    homekit_server_init(&config);
+
 }
