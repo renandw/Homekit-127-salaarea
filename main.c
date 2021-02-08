@@ -19,17 +19,17 @@
 #include "ota-api.h"
 
 // The GPIO pin that is connected to RELAY#1 on the board.
-const int relay_gpio_1 = 4;
+const int relay_gpio_1 = 2;
 // The GPIO pin that is connected to RELAY#2 on the board.
-const int relay_gpio_2 = 5;
+const int relay_gpio_2 = 4;
 // The GPIO pin that is connected to RELAY#3 on the board.
-const int relay_gpio_3 = 12;
+const int relay_gpio_3 = 5;
 // The GPIO pin that is connected to RELAY#4 on the board.
-const int relay_gpio_4 = 13;
+const int relay_gpio_4 = 12;
 // The GPIO pin that is connected to RELAY#5 on the board.
-const int relay_gpio_5 = 14;
+const int relay_gpio_5 = 13;
 // The GPIO pin that is connected to RELAY#5 on the board.
-const int relay_gpio_6 = 16;
+const int relay_gpio_6 = 14;
 
 
 // The GPIO pin that is connected to the button1 on the Board.
@@ -262,7 +262,7 @@ homekit_accessory_t *accessories[] = {
         }),
 
         HOMEKIT_SERVICE(LIGHTBULB, .primary=true, .characteristics=(homekit_characteristic_t*[]){
-	         HOMEKIT_CHARACTERISTIC(NAME, "Lâmpada"),
+	         HOMEKIT_CHARACTERISTIC(NAME, "Lâmpada 1"),
 	          &lightbulb_on_1,
             &ota_trigger,
             NULL
@@ -276,7 +276,7 @@ homekit_accessory_t *accessories[] = {
           .services=(homekit_service_t*[]){
             HOMEKIT_SERVICE(ACCESSORY_INFORMATION, .characteristics=(homekit_characteristic_t*[]){
             HOMEKIT_CHARACTERISTIC(IDENTIFY, light_identify),
-            HOMEKIT_CHARACTERISTIC(NAME, "Spots"),
+            HOMEKIT_CHARACTERISTIC(NAME, "Lâmpada 2"),
             &manufacturer,
             &serial,
             &model,
@@ -285,7 +285,7 @@ homekit_accessory_t *accessories[] = {
         }),  
 
         HOMEKIT_SERVICE(LIGHTBULB, .characteristics=(homekit_characteristic_t*[]){
-            HOMEKIT_CHARACTERISTIC(NAME, "Spots"),
+            HOMEKIT_CHARACTERISTIC(NAME, "Lâmpada 2"),
             &lightbulb_on_2,
             NULL
         }),
@@ -298,7 +298,7 @@ homekit_accessory_t *accessories[] = {
             .services=(homekit_service_t*[]){
               HOMEKIT_SERVICE(ACCESSORY_INFORMATION, .characteristics=(homekit_characteristic_t*[]){
               HOMEKIT_CHARACTERISTIC(IDENTIFY, light_identify),
-              HOMEKIT_CHARACTERISTIC(NAME, "Lâmpadas"),
+              HOMEKIT_CHARACTERISTIC(NAME, "Lâmpada 3"),
               &manufacturer,
               &serial,
               &model,
@@ -306,7 +306,7 @@ homekit_accessory_t *accessories[] = {
               NULL
           }),
         HOMEKIT_SERVICE(LIGHTBULB, .characteristics=(homekit_characteristic_t*[]){
-            HOMEKIT_CHARACTERISTIC(NAME, "Lâmpadas"),
+            HOMEKIT_CHARACTERISTIC(NAME, "Lâmpada 3"),
             &lightbulb_on_3,
             NULL
         }),
@@ -319,7 +319,7 @@ homekit_accessory_t *accessories[] = {
             .services=(homekit_service_t*[]){
               HOMEKIT_SERVICE(ACCESSORY_INFORMATION, .characteristics=(homekit_characteristic_t*[]){
               HOMEKIT_CHARACTERISTIC(IDENTIFY, light_identify),
-              HOMEKIT_CHARACTERISTIC(NAME, "Pendentes"),
+              HOMEKIT_CHARACTERISTIC(NAME, "Arandelas Frente"),
               &manufacturer,
               &serial,
               &model,
@@ -328,7 +328,7 @@ homekit_accessory_t *accessories[] = {
           }),      
 
         HOMEKIT_SERVICE(LIGHTBULB, .characteristics=(homekit_characteristic_t*[]){
-            HOMEKIT_CHARACTERISTIC(NAME, "Pendentes"),
+            HOMEKIT_CHARACTERISTIC(NAME, "Arandelas Frente"),
             &lightbulb_on_4,
             NULL
         }),
@@ -341,7 +341,7 @@ homekit_accessory_t *accessories[] = {
             .services=(homekit_service_t*[]){
               HOMEKIT_SERVICE(ACCESSORY_INFORMATION, .characteristics=(homekit_characteristic_t*[]){
               HOMEKIT_CHARACTERISTIC(IDENTIFY, light_identify),
-              HOMEKIT_CHARACTERISTIC(NAME, "Pendentes"),
+              HOMEKIT_CHARACTERISTIC(NAME, "Pendente"),
               &manufacturer,
               &serial,
               &model,
@@ -350,7 +350,7 @@ homekit_accessory_t *accessories[] = {
           }),      
 
         HOMEKIT_SERVICE(LIGHTBULB, .characteristics=(homekit_characteristic_t*[]){
-            HOMEKIT_CHARACTERISTIC(NAME, "Pendentes"),
+            HOMEKIT_CHARACTERISTIC(NAME, "Pendente"),
             &lightbulb_on_5,
             NULL
         }),
@@ -363,7 +363,7 @@ homekit_accessory_t *accessories[] = {
             .services=(homekit_service_t*[]){
               HOMEKIT_SERVICE(ACCESSORY_INFORMATION, .characteristics=(homekit_characteristic_t*[]){
               HOMEKIT_CHARACTERISTIC(IDENTIFY, light_identify),
-              HOMEKIT_CHARACTERISTIC(NAME, "Pendentes"),
+              HOMEKIT_CHARACTERISTIC(NAME, "Arandelas Lateral"),
               &manufacturer,
               &serial,
               &model,
@@ -372,7 +372,7 @@ homekit_accessory_t *accessories[] = {
           }),      
 
         HOMEKIT_SERVICE(LIGHTBULB, .characteristics=(homekit_characteristic_t*[]){
-            HOMEKIT_CHARACTERISTIC(NAME, "Pendentes"),
+            HOMEKIT_CHARACTERISTIC(NAME, "Arandelas Lateral"),
             &lightbulb_on_6,
             NULL
         }),
