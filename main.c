@@ -207,21 +207,21 @@ void button_callback_2(button_event_t event, void* context) {
     switch (event) {
         case button_event_single_press:
           printf("SINGLE PRESS\n");
-          lightbulb_on_4.value.bool_value = !lightbulb_on_4.value.bool_value;
-          relay_write_4(lightbulb_on_4.value.bool_value);
-          homekit_characteristic_notify(&lightbulb_on_4, lightbulb_on_4.value);
+          lightbulb_on_3.value.bool_value = !lightbulb_on_3.value.bool_value;
+          relay_write_3(lightbulb_on_3.value.bool_value);
+          homekit_characteristic_notify(&lightbulb_on_3, lightbulb_on_3.value);
           break;
         case button_event_double_press:
           printf("DOUBLE PRESS\n");
-          lightbulb_on_5.value.bool_value = !lightbulb_on_5.value.bool_value;
-          relay_write_5(lightbulb_on_5.value.bool_value);
-          homekit_characteristic_notify(&lightbulb_on_5, lightbulb_on_5.value);
+          lightbulb_on_2.value.bool_value = !lightbulb_on_2.value.bool_value;
+          relay_write_2(lightbulb_on_2.value.bool_value);
+          homekit_characteristic_notify(&lightbulb_on_2, lightbulb_on_2.value);  
           break;
         case button_event_tripple_press:
           printf("TRIPPLE PRESS\n");
-          lightbulb_on_6.value.bool_value = !lightbulb_on_6.value.bool_value;
-          relay_write_6(lightbulb_on_6.value.bool_value);
-          homekit_characteristic_notify(&lightbulb_on_6, lightbulb_on_6.value);
+          lightbulb_on_1.value.bool_value = !lightbulb_on_1.value.bool_value;
+          relay_write_1(lightbulb_on_1.value.bool_value);
+          homekit_characteristic_notify(&lightbulb_on_1, lightbulb_on_1.value);
           break;
         //case button_event_long_press:
         //  printf("LONG PRESS\n");
